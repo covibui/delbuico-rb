@@ -3,22 +3,24 @@ import BasicMeta from "@components/meta/BasicMeta";
 import OpenGraphMeta from "@components/meta/OpenGraphMeta";
 import TwitterCardMeta from "@components/meta/TwitterCardMeta";
 import {SocialList} from "@components/SocialList";
+import {GroupContent, listGroups} from "@lib/groups";
+import {GetStaticProps} from "next";
 
-export default function Index() {
+interface Props {
+	groups: GroupContent[];
+}
+
+export default function Index({groups}: Props) {
+	console.log("groups", groups);
 	return (
 		<Layout>
 			<BasicMeta url={"/"} />
 			<OpenGraphMeta url={"/"} />
 			<TwitterCardMeta url={"/"} />
 			<div className="container">
-				<div>
-					<h1>
-						Hi, We're Next.js & Netlify<span className="fancy">.</span>
-					</h1>
-					<span className="handle">@nextjs-netlify-blog</span>
-					<h2>A blog template with Next.js and Netlify.</h2>
-					<SocialList />
-				</div>
+				{groups.map((group, idx) => (
+					<div key={idx}>{group.name}</div>
+				))}
 			</div>
 			<style jsx>{`
 				.container {
@@ -60,3 +62,12 @@ export default function Index() {
 		</Layout>
 	);
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+	const groups = listGroups();
+	return {
+		props: {
+			groups,
+		},
+	};
+};

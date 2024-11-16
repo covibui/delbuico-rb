@@ -1,4 +1,5 @@
 {
-	"base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
-	"site_title": "Del Buico Kitchen"
+  "base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
+  "site_title": "Del Buico Kitchen",
+  "site_description": "Family recipes"
 }

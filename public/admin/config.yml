@@ -30,6 +30,9 @@ collections:
           - label: "Site title"
             name: "site_title"
             widget: "string"
+          - label: "Site description"
+            name: "site_description"
+            widget: "string"
 
   - name: "meta"
     label: "Meta"
