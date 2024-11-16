@@ -8,7 +8,7 @@ const recipesDirectory = path.join(process.cwd(), "content/recipes");
 export type RecipeContent = {
 	readonly slug: string;
 	readonly title: string;
-	readonly group?: string;
+	readonly group: string;
 	readonly tags?: string[];
 	readonly fullPath: string;
 };
@@ -73,18 +73,14 @@ export function countRecipes(
 }
 
 export function listRecipeContent(
-	page: number,
-	limit: number,
 	field: "group" | "tags" | null = null,
 	value?: string
 ): RecipeContent[] {
-	return fetchRecipeContent()
-		.filter(
-			(recipe) =>
-				!value ||
-				(field === "group"
-					? recipe.group === value
-					: recipe.tags && recipe.tags.includes(value))
-		)
-		.slice((page - 1) * limit, page * limit);
+	return fetchRecipeContent().filter(
+		(recipe) =>
+			!value ||
+			(field === "group"
+				? recipe.group === value
+				: recipe.tags && recipe.tags.includes(value))
+	);
 }

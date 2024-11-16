@@ -1,4 +1,3 @@
-local_backend: true
 backend:
   name: git-gateway
   branch: master
@@ -189,8 +188,8 @@ collections:
             widget: "number"
             value_type: "int"
             min: 1
-          - label: "Units"
-            name: "units"
+          - label: "Unit"
+            name: "unit"
             widget: "select"
             options:
               - {label: "Minute", value: "minute"}
