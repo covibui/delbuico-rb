@@ -3,7 +3,12 @@ backend:
   branch: master
 media_folder: public/images
 public_folder: /images
-publish_mode: editorial_workflow
+publish_mode: simple
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
 
 collections:
   - name: "config"
@@ -27,20 +32,6 @@ collections:
           - label: "Site description"
             name: "site_description"
             widget: "string"
-          - label: "Site keywords"
-            name: "site_keywords"
-            widget: "list"
-            summary: "{{fields.keyword.keyword}}"
-            field:
-              label: Keyword
-              name: keyword
-              widget: "string"
-          - label: "Twitter account"
-            name: "twitter_account"
-            widget: "string"
-          - label: "GitHub account"
-            name: "github_account"
-            widget: "string"
 
   - name: "meta"
     label: "Meta"
@@ -51,12 +42,13 @@ collections:
       - name: "authors"
         label: "Authors"
         file: "meta/authors.yml"
-        description: "Author descriptions"
+        description: "List of recipe authors"
         fields:
-          - name: authors
-            label: Authors
+          - name: "authors"
+            label: "Authors"
             label_singular: "Author"
             widget: list
+            summary: "{{fields.name}}"
             fields:
               - label: "Slug"
                 name: "slug"
@@ -65,19 +57,41 @@ collections:
               - label: "Name"
                 name: "name"
                 widget: "string"
-                hint: "First and Last"
-              - label: "Introduction"
-                name: "introduction"
-                widget: "text"
+                hint: "Displayed on recipes"
+      - name: "groups"
+        label: "Groups"
+        file: "meta/groups.yml"
+        description: "List of recipe Groups"
+        fields:
+          - name: "groups"
+            label: "Groups"
+            label_singular: "Group"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.slug}})"
+            fields:
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the group"
+              - label: "Display Name"
+                name: "name"
+                widget: "string"
+                hint: "Group name displayed on the site"
+              - label: "Image"
+                name: "image"
+                required: false
+                widget: "image"
+                allow_multiple: false
       - name: "tags"
         label: "Tags"
         file: "meta/tags.yml"
-        description: "List of tags"
+        description: "List of recipe tags"
         fields:
           - name: tags
             label: Tags
             label_singular: "Tag"
             widget: list
+            summary: "{{fields.name}} ({{fields.slug}})"
             fields:
               - label: "Slug"
                 name: "slug"
@@ -88,28 +102,21 @@ collections:
                 widget: "string"
                 hint: "Tag name for displaying on the site"
 
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts/"
+  - name: "recipes"
+    label: "Recipes"
+    folder: "content/recipes/"
     extension: "mdx"
     format: "frontmatter"
     create: true
     slug: "{{slug}}"
     identifier_field: slug
-    summary: "{{title}}"
     fields:
-      - label: "Slug"
+      - label: Slug
         name: "slug"
         widget: "string"
-      - label: "Title"
+      - label: Recipe Name
         name: "title"
         widget: "string"
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        dateFormat: "YYYY-MM-DD"
-        timeFormat: false
       - label: Author
         name: "author"
         widget: relation
@@ -117,9 +124,27 @@ collections:
         file: "authors"
         searchFields:
           - "authors.*.name"
+          - "authors.*.slug"
         displayFields:
           - "authors.*.name"
         valueField: "authors.*.slug"
+      - label: Group
+        name: "group"
+        widget: relation
+        collection: "meta"
+        file: "groups"
+        searchFields:
+          - "groups.*.name"
+          - "groups.*.slug"
+        displayFields:
+          - "groups.*.name"
+        valueField: "groups.*.slug"
+        default: "uncategorized"
+      - label: "Image"
+        name: "image"
+        required: false
+        widget: "image"
+        allow_multiple: false
       - label: Tags
         label_singular: "Tag"
         name: "tags"
@@ -136,6 +161,115 @@ collections:
           displayFields:
             - "tags.*.name"
           valueField: "tags.*.slug"
-      - label: "Body"
-        name: "body"
+      - label: "Prep Time"
+        name: "prep_time"
+        widget: "object"
+        summary: "{{fields.time}} {{fields.unit}}"
+        fields:
+          - label: "Time"
+            name: "time"
+            widget: "number"
+            value_type: "int"
+            min: 1
+          - label: "Unit"
+            name: "unit"
+            widget: "select"
+            options:
+              - {label: "Minute", value: "minute"}
+              - {label: "Hour", value: "hour"}
+              - {label: "Day", value: "day"}
+      - label: "Cook Time"
+        name: "cook_time"
+        widget: "object"
+        summary: "{{fields.time}} {{fields.unit}}"
+        fields:
+          - label: "Time"
+            name: "time"
+            widget: "number"
+            value_type: "int"
+            min: 1
+          - label: "Unit"
+            name: "unit"
+            widget: "select"
+            options:
+              - {label: "Minute", value: "minute"}
+              - {label: "Hour", value: "hour"}
+              - {label: "Day", value: "day"}
+      - label: "Servings"
+        name: "servings"
+        widget: "number"
+        value_type: "int"
+        min: 1
+      - label: "Pre Recipe Notes"
+        name: "pre_recipe_notes"
+        required: false
         widget: "markdown"
+        buttons:
+          - "bold"
+          - "italic"
+          - "link"
+          - "quote"
+          - "bulleted-list"
+          - "numbered-list"
+        editor_components: ["image"]
+        sanitize_preview: true
+      - label: "Materials"
+        name: "materials"
+        required: false
+        widget: "list"
+        label_singular: "material"
+        fields:
+          - label: "Item"
+            name: "item"
+            widget: "string"
+      - label: "Ingredients"
+        name: "ingredients"
+        widget: "list"
+        label_singular: "ingredient"
+        fields:
+          - label: "Item"
+            name: "item"
+            widget: "string"
+          - label: "Substitute"
+            name: "substitute"
+            required: false
+            widget: "string"
+      - label: "Directions"
+        name: "directions"
+        widget: "list"
+        label_singular: "direction"
+        fields:
+          - label: "Step"
+            name: "step"
+            widget: "markdown"
+            buttons:
+              - "bold"
+              - "italic"
+              - "link"
+              - "quote"
+              - "bulleted-list"
+              - "numbered-list"
+            editor_components: ["image"]
+            sanitize_preview: true
+          - label: "Ingredients"
+            name: "ingredients"
+            required: false
+            widget: "list"
+            label_singular: "ingredient"
+            fields:
+              - label: "item"
+                name: "Item"
+                widget: "string"
+      - label: "Post Recipe Notes"
+        name: "post_recipe_notes"
+        required: false
+        widget: "markdown"
+        buttons:
+          - "bold"
+          - "italic"
+          - "link"
+          - "quote"
+          - "bulleted-list"
+          - "numbered-list"
+        editor_components: ["image"]
+        sanitize_preview: true
