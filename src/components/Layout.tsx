@@ -1,12 +1,14 @@
-import {Container} from "@mui/material";
+import {Container, Stack} from "@mui/material";
 import Head from "next/head";
+import Header from "./Header";
+import Footer from "./Footer";
 
 type Props = {
 	children: React.ReactNode;
 };
 export default function Layout({children}: Props) {
 	return (
-		<div className="root">
+		<>
 			<Head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,9 +16,19 @@ export default function Layout({children}: Props) {
 				<link rel="apple-touch-icon" href="/icon.png" />
 				<meta name="theme-color" content="#fff" />
 			</Head>
-			<Container component="main" maxWidth="lg">
-				{children}
+			<Container
+				component="main"
+				maxWidth="lg"
+				sx={{display: "flex", minHeight: 1}}
+			>
+				<Stack justifyContent="space-between" flex={1}>
+					<div>
+						<Header />
+						{children}
+					</div>
+					<Footer />
+				</Stack>
 			</Container>
-		</div>
+		</>
 	);
 }
