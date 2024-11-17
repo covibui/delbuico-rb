@@ -2,10 +2,10 @@ import {GetStaticPaths, GetStaticProps} from "next";
 import fs from "fs";
 import matter from "gray-matter";
 import yaml from "js-yaml";
-import {fetchRecipeContent} from "@lib/recipes";
+import {fetchRecipeContent, RecipeContent} from "@lib/recipes";
 
 const slugToRecipeContent = ((recipeContents) => {
-	let hash = {};
+	let hash: {[key: string]: RecipeContent} = {};
 	recipeContents.forEach((recipe) => (hash[recipe.slug] = recipe));
 	return hash;
 })(fetchRecipeContent());
@@ -71,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-	const recipeSlug = params.recipeSlug as string;
+	const recipeSlug = params?.recipeSlug as string;
 	const source = fs.readFileSync(
 		slugToRecipeContent[recipeSlug].fullPath,
 		"utf8"

@@ -32,7 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-	const groupSlug = params.groupSlug as string;
+	const groupSlug = params?.groupSlug as string;
 	const group = getGroup(groupSlug);
 	const recipes = listRecipeContent("group", groupSlug);
 	return {
