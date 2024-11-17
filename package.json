@@ -9,11 +9,14 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"@emotion/cache": "^11.13.1",
 		"@emotion/react": "^11.13.3",
+		"@emotion/server": "^11.11.0",
 		"@emotion/styled": "^11.13.0",
 		"@fontsource/lato": "^5.1.0",
 		"@mapbox/rehype-prism": "^0.6.0",
 		"@mui/material": "^6.1.7",
+		"@mui/material-nextjs": "^6.1.7",
 		"@svgr/webpack": "^5.5.0",
 		"gray-matter": "^4.0.3",
 		"js-yaml": "^4.1.0",

@@ -7,12 +7,16 @@ import "@fontsource/lato/300.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
 import theme from "@theme/index";
+import {AppCacheProvider} from "@mui/material-nextjs/v13-pagesRouter";
 
-export default function App({Component, pageProps}: AppProps) {
+export default function App(props: AppProps) {
+	const {Component, pageProps} = props;
 	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<Component {...pageProps} />
-		</ThemeProvider>
+		<AppCacheProvider {...props}>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<Component {...pageProps} />
+			</ThemeProvider>
+		</AppCacheProvider>
 	);
 }
