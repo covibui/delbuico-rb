@@ -19,18 +19,6 @@ let theme = createTheme({
 			main: palette.beige.B4,
 		},
 	},
-	components: {
-		MuiButton: {
-			styleOverrides: {
-				root: {
-					boxShadow: "none",
-					"&:hover, &:focus, &:active": {
-						boxShadow: "none",
-					},
-				},
-			},
-		},
-	},
 });
 
 theme = createTheme(theme, {
