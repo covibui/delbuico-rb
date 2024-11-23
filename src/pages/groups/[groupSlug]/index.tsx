@@ -3,7 +3,6 @@ import {getGroup, GroupContent, listGroups} from "@lib/groups";
 import {listRecipeContent, RecipeContent} from "@lib/recipes";
 import {GetStaticPaths, GetStaticProps} from "next";
 import {Box} from "@mui/material";
-import Tile from "@components/Tile";
 import RecipeTile from "@components/RecipeTile";
 
 interface Props {
@@ -13,7 +12,7 @@ interface Props {
 
 export default function Group({group, recipes}: Props) {
 	return (
-		<Layout>
+		<Layout title={group.name} itemCount={group.count} backLink="/">
 			<Box sx={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2.5}}>
 				{recipes.map((recipe, idx) => (
 					<RecipeTile key={idx} recipe={recipe} />

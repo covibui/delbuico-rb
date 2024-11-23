@@ -54,6 +54,13 @@ theme = createTheme(theme, {
 				}),
 			},
 		},
+		MuiIconButton: {
+			styleOverrides: {
+				root: {
+					borderRadius: 2,
+				}
+			}
+		}
 	},
 } as ThemeOptions);
 

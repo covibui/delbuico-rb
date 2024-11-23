@@ -28,7 +28,7 @@
 			"@pages/*": ["pages/*"],
 			"@public/*": ["public/*"],
 			"@theme/*": ["src/theme/*"],
-			"@util/*": ["src/util/*"]
+			"@utils/*": ["src/utils/*"]
 		}
 	},
 	"exclude": ["node_modules"],

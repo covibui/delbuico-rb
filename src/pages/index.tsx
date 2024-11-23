@@ -12,7 +12,7 @@ interface Props {
 
 export default function Index({groups}: Props) {
 	return (
-		<Layout>
+		<Layout title='Recipe Book'>
 			<BasicMeta url={"/"} />
 			<OpenGraphMeta url={"/"} />
 			<Box sx={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2.5}}>

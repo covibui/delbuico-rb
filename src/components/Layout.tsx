@@ -2,11 +2,13 @@ import {Container, Stack} from "@mui/material";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
+import { ComponentProps } from "react";
 
-type Props = {
+interface Props extends ComponentProps<typeof Header> {
 	children: React.ReactNode;
 };
-export default function Layout({children}: Props) {
+
+export default function Layout({children, ...headerProps}: Props) {
 	return (
 		<>
 			<Head>
@@ -23,7 +25,7 @@ export default function Layout({children}: Props) {
 			>
 				<Stack justifyContent="space-between" flex={1}>
 					<div>
-						<Header />
+						<Header {...headerProps} />
 						{children}
 					</div>
 					<Footer />
