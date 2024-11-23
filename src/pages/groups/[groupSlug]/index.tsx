@@ -1,6 +1,9 @@
+import Layout from "@components/Layout";
 import {getGroup, GroupContent, listGroups} from "@lib/groups";
 import {listRecipeContent, RecipeContent} from "@lib/recipes";
 import {GetStaticPaths, GetStaticProps} from "next";
+import {Box} from "@mui/material";
+import RecipeTile from "@components/RecipeTile";
 
 interface Props {
 	group: GroupContent;
@@ -9,17 +12,13 @@ interface Props {
 
 export default function Group({group, recipes}: Props) {
 	return (
-		<div>
-			<a href="/">Home</a>
-			<p>{group.name}</p>
-			{recipes.map((recipe, idx) => (
-				<p key={idx}>
-					<a href={`/groups/${group.slug}/recipes/${recipe.slug}`}>
-						{recipe.title}
-					</a>
-				</p>
-			))}
-		</div>
+		<Layout title={group.name} itemCount={group.count} backLink="/">
+			<Box sx={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2.5}}>
+				{recipes.map((recipe, idx) => (
+					<RecipeTile key={idx} recipe={recipe} />
+				))}
+			</Box>
+		</Layout>
 	);
 }
 
@@ -32,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-	const groupSlug = params.groupSlug as string;
+	const groupSlug = params?.groupSlug as string;
 	const group = getGroup(groupSlug);
 	const recipes = listRecipeContent("group", groupSlug);
 	return {
