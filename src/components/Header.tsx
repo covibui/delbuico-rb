@@ -1,4 +1,4 @@
-import {Box, IconButton, Stack, Typography, useMediaQuery} from "@mui/material";
+import {Box, IconButton, Link, Stack, Typography, useMediaQuery} from "@mui/material";
 import Logo from "@assets/del-buico-logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -34,7 +34,9 @@ export default function Header({title, itemCount, backLink}: Props) {
 				pb: 2,
 			}}
 		>
-			<Logo width={logoSize} height={logoSize} />
+			<Link href="/">
+				<Logo width={logoSize} height={logoSize} />
+			</Link>
 			<Box sx={{
 				display: 'grid',
 				gap: 2,

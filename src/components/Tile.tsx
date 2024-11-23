@@ -1,14 +1,17 @@
 import {Box, Stack, Typography} from "@mui/material";
 import palette from "@theme/palette";
+import Image from "next/image";
 import RouterLink from "next/link";
 
 export default function Tile({
 	name,
 	href,
+	image,
 	children,
 }: {
 	name: string;
 	href: string;
+	image?: string;
 	children?: React.ReactNode;
 }) {
 	return (
@@ -18,16 +21,16 @@ export default function Tile({
 			spacing={0.5}
 			sx={{
 				"&:nth-of-type(4n+1) .MuiBox-root": {
-					background: palette.beige.B1,
+					backgroundColor: palette.beige.B1,
 				},
 				"&:nth-of-type(4n+2) .MuiBox-root": {
-					background: palette.beige.B2,
+					backgroundColor: palette.beige.B2,
 				},
 				"&:nth-of-type(4n+3) .MuiBox-root": {
-					background: palette.beige.B3,
+					backgroundColor: palette.beige.B3,
 				},
 				"&:nth-of-type(4n+4) .MuiBox-root": {
-					background: palette.beige.B4,
+					backgroundColor: palette.beige.B4,
 				},
 				textDecoration: "none",
 				color: "unset",
@@ -39,8 +42,13 @@ export default function Tile({
 					aspectRatio: 1,
 					borderRadius: 1,
 					boxShadow: "0px 2px 4px 0px rgba(117, 117, 117, 0.3)",
+					backgroundImage: `url(${image})`,
+					backgroundPosition: 'center',
+					backgroundSize: 'cover',
+					backgroundRepeat: 'no-repeat'
 				}}
-			></Box>
+			>
+			</Box>
 			<Typography sx={{fontSize: {xs: 11, sm: 14, lg: 18}}}>{name}</Typography>
 			{children}
 		</Stack>
