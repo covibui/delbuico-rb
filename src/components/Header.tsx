@@ -16,9 +16,6 @@ export default function Header({title, itemCount, backLink}: Props) {
 
 	const logoSize = isLg ? 200 : isSm ? 110 : 65;
 
-	console.log(itemCount)
-	console.log(itemCount as number > -1)
-
 	return (
 		<Stack
 			id="header"
