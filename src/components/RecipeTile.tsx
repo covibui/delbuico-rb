@@ -1,8 +1,7 @@
 import Tile from "./Tile";
 import { Stack } from "@mui/material";
 import { RecipeContent } from "@lib/recipes";
-import { getTag } from "@lib/tags";
-import TagChip from "./TagChip";
+import TagRow from "./TagRow";
 
 export default function RecipeTile({ recipe }: { recipe: RecipeContent }) {
   return (
@@ -10,9 +9,7 @@ export default function RecipeTile({ recipe }: { recipe: RecipeContent }) {
       name={recipe.title}
       href={`/groups/${recipe.group}/recipes/${recipe.slug}`}
     >
-      <Stack direction="row">
-        {recipe.tags?.map((tag, idx) => <TagChip key={idx} slug={tag} />)}
-      </Stack>
+      {recipe.tags && <TagRow tags={recipe.tags} limit={2} />}
     </Tile>
   );
 }

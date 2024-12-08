@@ -6,4 +6,6 @@ export default {
     B3: "#E3D5CA",
     B4: "#D5BDAF",
   },
+  white: "#FFFFFF",
+  black: "#000000",
 };
