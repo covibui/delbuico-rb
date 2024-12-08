@@ -1,4 +1,4 @@
-
+local_backend: true
 backend:
   name: git-gateway
   branch: master
@@ -176,9 +176,9 @@ collections:
             name: "unit"
             widget: "select"
             options:
-              - {label: "Minute", value: "minute"}
-              - {label: "Hour", value: "hour"}
-              - {label: "Day", value: "day"}
+              - { label: "Minute", value: "minute" }
+              - { label: "Hour", value: "hour" }
+              - { label: "Day", value: "day" }
       - label: "Cook Time"
         name: "cook_time"
         widget: "object"
@@ -193,9 +193,9 @@ collections:
             name: "unit"
             widget: "select"
             options:
-              - {label: "Minute", value: "minute"}
-              - {label: "Hour", value: "hour"}
-              - {label: "Day", value: "day"}
+              - { label: "Minute", value: "minute" }
+              - { label: "Hour", value: "hour" }
+              - { label: "Day", value: "day" }
       - label: "Servings"
         name: "servings"
         widget: "number"
