@@ -1,12 +1,6 @@
 import groups from "@meta/groups.yml";
 import { countRecipes } from "./recipes";
-
-export type GroupContent = {
-  readonly slug: string;
-  readonly name: string;
-  readonly image?: string;
-  readonly count: number;
-};
+import { GroupContent } from "src/types";
 
 function generateGroupMap(): { [key: string]: GroupContent } {
   let result: { [key: string]: GroupContent } = {};

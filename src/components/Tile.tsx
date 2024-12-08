@@ -1,6 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
 import palette from "@theme/palette";
-import Image from "next/image";
 import RouterLink from "next/link";
 
 export default function Tile({

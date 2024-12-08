@@ -1,7 +1,6 @@
 import Tile from "./Tile";
-import { Stack } from "@mui/material";
-import { RecipeContent } from "@lib/recipes";
 import TagRow from "./TagRow";
+import { RecipeContent } from "src/types";
 
 export default function RecipeTile({ recipe }: { recipe: RecipeContent }) {
   return (

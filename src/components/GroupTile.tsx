@@ -1,4 +1,4 @@
-import { GroupContent } from "@lib/groups";
+import { GroupContent } from "src/types";
 import Tile from "./Tile";
 import { Typography } from "@mui/material";
 

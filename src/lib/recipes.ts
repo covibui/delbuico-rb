@@ -2,20 +2,13 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import yaml from "js-yaml";
+import { RecipeCacheContent } from "src/types";
 
 const recipesDirectory = path.join(process.cwd(), "content/recipes");
 
-export type RecipeContent = {
-  readonly slug: string;
-  readonly title: string;
-  readonly group: string;
-  readonly tags?: string[];
-  readonly fullPath: string;
-};
+let recipeCache: RecipeCacheContent[];
 
-let recipeCache: RecipeContent[];
-
-export function fetchRecipeContent(): RecipeContent[] {
+export function fetchRecipeCacheContent(): RecipeCacheContent[] {
   if (recipeCache) {
     return recipeCache;
   }
@@ -63,7 +56,7 @@ export function countRecipes(
   field: "group" | "tags" | null = null,
   value?: string,
 ): number {
-  return fetchRecipeContent().filter(
+  return fetchRecipeCacheContent().filter(
     (recipe) =>
       !value ||
       (field === "group"
@@ -72,11 +65,11 @@ export function countRecipes(
   ).length;
 }
 
-export function listRecipeContent(
+export function listRecipeCacheContent(
   field: "group" | "tags" | null = null,
   value?: string,
-): RecipeContent[] {
-  return fetchRecipeContent().filter(
+): RecipeCacheContent[] {
+  return fetchRecipeCacheContent().filter(
     (recipe) =>
       !value ||
       (field === "group"

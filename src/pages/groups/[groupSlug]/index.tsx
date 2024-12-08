@@ -1,9 +1,11 @@
 import Layout from "@components/Layout";
-import { getGroup, GroupContent, listGroups } from "@lib/groups";
-import { listRecipeContent, RecipeContent } from "@lib/recipes";
+import { getGroup, listGroups } from "@lib/groups";
+import { listRecipeCacheContent } from "@lib/recipes";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Box } from "@mui/material";
 import RecipeTile from "@components/RecipeTile";
+import { GroupContent, RecipeContent } from "src/types";
+import { getTags } from "@lib/tags";
 
 interface Props {
   group: GroupContent;
@@ -30,10 +32,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const groupSlug = params?.groupSlug as string;
   const group = getGroup(groupSlug);
-  const recipes = listRecipeContent("group", groupSlug);
+  const recipes: RecipeContent[] = listRecipeCacheContent(
+    "group",
+    groupSlug,
+  ).map((cacheContent) => ({
+    ...cacheContent,
+    group: getGroup(cacheContent.group),
+    tags: getTags(cacheContent.tags || []),
+  }));
+
   return {
     props: { group, recipes },
   };

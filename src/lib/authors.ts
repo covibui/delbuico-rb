@@ -1,9 +1,5 @@
 import authors from "@meta/authors.yml";
-
-export type AuthorContent = {
-  readonly slug: string;
-  readonly name: string;
-};
+import { AuthorContent } from "src/types";
 
 const authorMap: { [key: string]: AuthorContent } = generateAuthorMap();
 

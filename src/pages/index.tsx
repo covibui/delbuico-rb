@@ -2,9 +2,10 @@ import GroupTile from "@components/GroupTile";
 import Layout from "@components/Layout";
 import BasicMeta from "@components/meta/BasicMeta";
 import OpenGraphMeta from "@components/meta/OpenGraphMeta";
-import { GroupContent, listGroups } from "@lib/groups";
+import { listGroups } from "@lib/groups";
 import { Box } from "@mui/material";
 import { GetStaticProps } from "next";
+import { GroupContent } from "src/types";
 
 interface Props {
   groups: GroupContent[];

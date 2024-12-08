@@ -1,9 +1,5 @@
 import tags from "@meta/tags.yml";
-
-export type TagContent = {
-  readonly slug: string;
-  readonly name: string;
-};
+import { TagContent } from "src/types";
 
 const tagMap: { [key: string]: TagContent } = generateTagMap();
 
@@ -17,6 +13,10 @@ function generateTagMap(): { [key: string]: TagContent } {
 
 export function getTag(slug: string) {
   return tagMap[slug];
+}
+
+export function getTags(slugs: string[]) {
+  return slugs.map((slug) => getTag(slug));
 }
 
 export function listTags(): TagContent[] {
