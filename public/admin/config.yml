@@ -129,6 +129,7 @@ collections:
         displayFields:
           - "authors.*.name"
         valueField: "authors.*.slug"
+        options_length: 50
       - label: Group
         name: "group"
         widget: relation
@@ -141,6 +142,7 @@ collections:
           - "groups.*.name"
         valueField: "groups.*.slug"
         default: "uncategorized"
+        options_length: 50
       - label: "Image"
         name: "image"
         required: false
@@ -162,6 +164,7 @@ collections:
           displayFields:
             - "tags.*.name"
           valueField: "tags.*.slug"
+          options_length: 100
       - label: "Prep Time"
         name: "prep_time"
         widget: "object"
