@@ -4,3 +4,47 @@ groups:
     image: ""
   - slug: drinks
     name: Drinks
+  - slug: stocks-sauces
+    name: Stocks & Sauces
+  - slug: condiments-marinades-dryrubs
+    name: Condiments, Marinades & Dry Rubs
+  - slug: seasoning-blends
+    name: Seasoning Blends
+  - slug: soups
+    name: Soups
+  - slug: hors-doevres
+    name: Hors D’oevres
+  - name: Sandwiches, Wraps & Pizzas
+    slug: sandwiches-wraps-pizzas
+  - name: Salads & Dressings
+    slug: salads-dressings
+  - slug: grains
+    name: Grains
+  - name: Pasta, Noodles & Dumplings
+    slug: pasta-noodles-dumplings
+  - slug: vegetables
+    name: Vegetables
+  - name: Shellfish & Fish
+    slug: shellfish-fish
+  - slug: poultry
+    name: Poultry
+  - slug: meat
+    name: Meat
+  - slug: breads
+    name: Breads
+  - slug: breakfast
+    name: Breakfast
+  - name: Pancakes, Waffles, French Toast & Doughnuts
+    slug: pancakes-waffles-ft-donuts
+  - slug: cookies
+    name: Cookies
+  - name: Pastries, Pies & Tarts
+    slug: pastries-pies-tarts
+  - slug: cakes
+    name: Cakes
+  - name: Frostings, Fillings & Glazes
+    slug: frostings-fillings-glazes
+  - slug: dogs
+    name: Dogs
+  - slug: cleaning
+    name: Cleaning Recipes
