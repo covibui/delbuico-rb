@@ -1,46 +1,36 @@
+import {Container, Stack} from "@mui/material";
 import Head from "next/head";
-import Navigation from "./Navigation";
+import Header from "./Header";
+import Footer from "./Footer";
+import { ComponentProps } from "react";
 
-type Props = {
-  children: React.ReactNode;
+interface Props extends ComponentProps<typeof Header> {
+	children: React.ReactNode;
 };
-export default function Layout({ children }: Props) {
-  return (
-    <div className="root">
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="apple-touch-icon" href="/icon.png" />
-        <meta name="theme-color" content="#fff" />
-      </Head>
-      <nav>
-        <Navigation />
-      </nav>
-      <main>{children}</main>
-      <style jsx>
-        {`
-          .root {
-            display: block;
-            padding: 4rem 0;
-            box-sizing: border-box;
-            height: 100%;
-          }
-          main {
-            display: flex;
-            min-height: 100%;
-          }
-          @media (min-width: 769px) {
-            .root {
-              display: flex;
-              flex: 1 0 auto;
-            }
-            main {
-              flex: 1 0 auto;
-            }
-          }
-        `}
-      </style>
-    </div>
-  );
+
+export default function Layout({children, ...headerProps}: Props) {
+	return (
+		<>
+			<Head>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<link rel="manifest" href="/site.webmanifest" />
+				<link rel="apple-touch-icon" href="/icon.png" />
+				<meta name="theme-color" content="#fff" />
+			</Head>
+			<Container
+				component="main"
+				maxWidth="lg"
+				sx={{display: "flex", minHeight: 1}}
+			>
+				<Stack justifyContent="space-between" flex={1}>
+					<div>
+						<Header {...headerProps} />
+						{children}
+					</div>
+					<Footer />
+				</Stack>
+			</Container>
+		</>
+	);
 }
