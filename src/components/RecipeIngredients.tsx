@@ -11,7 +11,7 @@ export default function RecipeIngredients({ ingredients }: Props) {
       <Typography>Ingredients</Typography>
       <Stack component="ul">
         {ingredients.map((ingredient, idx) => (
-          <Typography component="li">
+          <Typography key={idx} component="li">
             {ingredient.item}{" "}
             {ingredient.substitute && (
               <Typography component="span">

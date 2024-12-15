@@ -4,17 +4,10 @@ import config from "@lib/config";
 type Props = {
   title?: string;
   description?: string;
-  keywords?: string[];
   author?: string;
   url: string;
 };
-export default function BasicMeta({
-  title,
-  description,
-  keywords,
-  author,
-  url,
-}: Props) {
+export default function BasicMeta({ title, description, author, url }: Props) {
   return (
     <Head>
       <title>

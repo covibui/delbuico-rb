@@ -109,7 +109,13 @@ collections:
     format: "frontmatter"
     create: true
     slug: "{{slug}}"
-    identifier_field: slug
+    summary: "{{ group }} | {{ title }}"
+    sortable_fields: ["title", "slug", "author", "group"]
+    view_groups:
+      - label: Group
+        field: group
+      - label: Author
+        field: author
     fields:
       - label: Slug
         name: "slug"

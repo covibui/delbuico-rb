@@ -61,9 +61,11 @@ export default function Header({ title, itemCount, backLink }: Props) {
           </IconButton>
         )}
         <Stack sx={{ gridArea: "title", alignItems: "center" }}>
-          <Typography component="h1">{title}</Typography>
+          <Typography variant="lightCaps" sx={{ textAlign: "center" }}>
+            {title}
+          </Typography>
           {(itemCount || itemCount === 0) && (
-            <Typography sx={{ color: "text.secondary" }}>
+            <Typography variant="textSm" sx={{ color: "text.secondary" }}>
               {itemCount} {pluralize("Item", itemCount)}
             </Typography>
           )}

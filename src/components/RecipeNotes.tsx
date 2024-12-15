@@ -1,4 +1,5 @@
 import { Stack, Typography } from "@mui/material";
+import MarkdownBlock from "./MarkdownBlock";
 
 interface Props {
   notes: string;
@@ -7,8 +8,8 @@ interface Props {
 export default function RecipeNotes({ notes }: Props) {
   return (
     <Stack>
-      <Typography>Notes</Typography>
-      <Typography>{notes}</Typography>
+      <Typography variant="h2">Notes</Typography>
+      <MarkdownBlock>{notes}</MarkdownBlock>
     </Stack>
   );
 }

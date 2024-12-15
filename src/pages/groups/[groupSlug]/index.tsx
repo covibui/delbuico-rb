@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 import RecipeTile from "@components/RecipeTile";
 import { GroupMeta, RecipeMeta } from "src/types";
 import { getTags } from "@lib/tags";
+import BasicMeta from "@components/meta/BasicMeta";
 
 interface Props {
   group: GroupMeta;
@@ -15,6 +16,7 @@ interface Props {
 export default function Group({ group, recipes }: Props) {
   return (
     <Layout title={group.name} itemCount={group.count} backLink="/">
+      <BasicMeta title={group.name} url={`/groups/${group.slug}`} />
       <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2.5 }}>
         {recipes.map((recipe, idx) => (
           <RecipeTile key={idx} recipe={recipe} />

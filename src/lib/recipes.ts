@@ -6,11 +6,11 @@ import { RecipeCacheMeta } from "src/types";
 
 const recipesDirectory = path.join(process.cwd(), "content/recipes");
 
-let RecipeCacheMeta: RecipeCacheMeta[];
+let RecipeCache: RecipeCacheMeta[];
 
 export function fetchRecipeCacheMeta(): RecipeCacheMeta[] {
-  if (RecipeCacheMeta) {
-    return RecipeCacheMeta;
+  if (RecipeCache) {
+    return RecipeCache;
   }
 
   // Get file names under /recipes
@@ -33,6 +33,7 @@ export function fetchRecipeCacheMeta(): RecipeCacheMeta[] {
         title: string;
         group: string;
         fullPath: string;
+        url: string;
       };
       matterData.fullPath = fullPath;
 
@@ -48,8 +49,8 @@ export function fetchRecipeCacheMeta(): RecipeCacheMeta[] {
       return matterData;
     });
 
-  RecipeCacheMeta = allRecipesData;
-  return RecipeCacheMeta;
+  RecipeCache = allRecipesData;
+  return RecipeCache;
 }
 
 export function countRecipes(

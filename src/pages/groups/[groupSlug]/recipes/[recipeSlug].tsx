@@ -5,7 +5,7 @@ import yaml from "js-yaml";
 import { fetchRecipeCacheMeta } from "@lib/recipes";
 import Layout from "@components/Layout";
 import { getGroup } from "@lib/groups";
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { getAuthor } from "@lib/authors";
 import { RecipeCacheMeta, RecipeContent } from "src/types";
 import TagRow from "@components/TagRow";
@@ -16,6 +16,7 @@ import RecipeNotes from "@components/RecipeNotes";
 import RecipeMaterials from "@components/RecipeMaterials";
 import RecipeIngredients from "@components/RecipeIngredients";
 import RecipeDirections from "@components/RecipeDirections";
+import BasicMeta from "@components/meta/BasicMeta";
 
 const slugToRecipeMeta = ((RecipeMeta) => {
   let hash: { [key: string]: RecipeCacheMeta } = {};
@@ -24,16 +25,25 @@ const slugToRecipeMeta = ((RecipeMeta) => {
 })(fetchRecipeCacheMeta());
 
 export default function Recipe(recipe: RecipeContent) {
-  const tags = getTags(recipe.tags ?? []);
-  console.log(recipe);
   return (
-    <Layout title={recipe.group.name} itemCount={recipe.group.count}>
+    <Layout
+      title={recipe.group.name}
+      itemCount={recipe.group.count}
+      backLink={`/groups/${recipe.group.slug}`}
+    >
+      <BasicMeta
+        title={recipe.title}
+        author={recipe.author.name}
+        url={`/groups/${recipe.group.slug}/recipes/${recipe.slug}`}
+      />
       <Stack spacing={2}>
         <Stack spacing={1}>
           <Typography variant="h1">{recipe.title}</Typography>
           <Typography variant="subtitle1">by: {recipe.author.name}</Typography>
         </Stack>
-        <TagRow tags={tags} />
+        {recipe.tags && recipe.tags.length > 0 && (
+          <TagRow tags={getTags(recipe.tags)} />
+        )}
         {/* TODO: add recipe image support */}
         <RecipeData
           stats={[
