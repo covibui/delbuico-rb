@@ -41,7 +41,7 @@ export function fetchRecipeCacheContent(): RecipeCacheContent[] {
       // Validate slug string
       if (matterData.slug !== slug) {
         throw new Error(
-          "slug field does not match with the path of its content source",
+          `slug field does not match with the path of its content source, ${matterData.slug} !== ${slug}`,
         );
       }
 
