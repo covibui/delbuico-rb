@@ -5,10 +5,10 @@ import OpenGraphMeta from "@components/meta/OpenGraphMeta";
 import { listGroups } from "@lib/groups";
 import { Box } from "@mui/material";
 import { GetStaticProps } from "next";
-import { GroupContent } from "src/types";
+import { GroupMeta } from "src/types";
 
 interface Props {
-  groups: GroupContent[];
+  groups: GroupMeta[];
 }
 
 export default function Index({ groups }: Props) {

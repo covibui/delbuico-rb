@@ -11,12 +11,72 @@ declare module "@mui/material/Chip" {
   }
 }
 
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    lightCaps: React.CSSProperties;
+    textSm: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme()`
+  interface TypographyVariantsOptions {
+    lightCaps?: React.CSSProperties;
+    textSm?: React.CSSProperties;
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    lightCaps: true;
+    textSm: true;
+  }
+}
+
 let theme = createTheme({
   typography: {
     fontFamily: '"Lato", "Helvetica", "Arial", sans-serif',
+    lightCaps: {
+      fontSize: 14,
+      fontWeight: 300,
+      lineHeight: "17px",
+      textTransform: "uppercase",
+    },
+    textSm: {
+      fontSize: 12,
+      fontWeight: 300,
+      lineHeight: "10px",
+    },
+    body1: {
+      fontSize: 14,
+      lineHeight: "22px",
+    },
+    body2: {
+      fontSize: 14,
+      fontWeight: 300,
+      lineHeight: "22px",
+    },
+    h1: {
+      fontSize: 20,
+      fontWeight: 400,
+      lineHeight: "24px",
+    },
+    h2: {
+      fontSize: 16,
+      fontWeight: 400,
+      lineHeight: "18px",
+      textTransform: "uppercase",
+    },
+    subtitle1: {
+      fontSize: 16,
+      fontWeight: 300,
+      lineHeight: "20px",
+    },
+    subtitle2: {
+      fontSize: 14,
+      fontWeight: 400,
+      lineHeight: "17px",
+    },
   },
   palette: {
-    mode: "light",
     background: {
       default: palette.beige.BG,
       paper: palette.beige.B1,
@@ -103,6 +163,11 @@ theme = createTheme(theme, {
         root: {
           borderRadius: 2,
         },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        h1: {},
       },
     },
   },

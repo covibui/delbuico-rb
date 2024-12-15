@@ -47,9 +47,7 @@ export default function Tile({
           backgroundRepeat: "no-repeat",
         }}
       ></Box>
-      <Typography sx={{ fontSize: { xs: 11, sm: 14, lg: 18 } }}>
-        {name}
-      </Typography>
+      <Typography variant="subtitle2">{name}</Typography>
       {children}
     </Stack>
   );

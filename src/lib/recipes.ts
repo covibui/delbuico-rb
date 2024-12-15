@@ -2,15 +2,15 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import yaml from "js-yaml";
-import { RecipeCacheContent } from "src/types";
+import { RecipeCacheMeta } from "src/types";
 
 const recipesDirectory = path.join(process.cwd(), "content/recipes");
 
-let recipeCache: RecipeCacheContent[];
+let RecipeCache: RecipeCacheMeta[];
 
-export function fetchRecipeCacheContent(): RecipeCacheContent[] {
-  if (recipeCache) {
-    return recipeCache;
+export function fetchRecipeCacheMeta(): RecipeCacheMeta[] {
+  if (RecipeCache) {
+    return RecipeCache;
   }
 
   // Get file names under /recipes
@@ -33,6 +33,7 @@ export function fetchRecipeCacheContent(): RecipeCacheContent[] {
         title: string;
         group: string;
         fullPath: string;
+        url: string;
       };
       matterData.fullPath = fullPath;
 
@@ -41,22 +42,22 @@ export function fetchRecipeCacheContent(): RecipeCacheContent[] {
       // Validate slug string
       if (matterData.slug !== slug) {
         throw new Error(
-          `slug field does not match with the path of its content source, ${matterData.slug} !== ${slug}`,
+          `slug field does not match with the path of its content source, ${slug} !== ${matterData.slug}`,
         );
       }
 
       return matterData;
     });
 
-  recipeCache = allRecipesData;
-  return recipeCache;
+  RecipeCache = allRecipesData;
+  return RecipeCache;
 }
 
 export function countRecipes(
   field: "group" | "tags" | null = null,
   value?: string,
 ): number {
-  return fetchRecipeCacheContent().filter(
+  return fetchRecipeCacheMeta().filter(
     (recipe) =>
       !value ||
       (field === "group"
@@ -65,11 +66,11 @@ export function countRecipes(
   ).length;
 }
 
-export function listRecipeCacheContent(
+export function listRecipeCacheMeta(
   field: "group" | "tags" | null = null,
   value?: string,
-): RecipeCacheContent[] {
-  return fetchRecipeCacheContent().filter(
+): RecipeCacheMeta[] {
+  return fetchRecipeCacheMeta().filter(
     (recipe) =>
       !value ||
       (field === "group"

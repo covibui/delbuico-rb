@@ -1,12 +1,12 @@
 import { getTag } from "@lib/tags";
 import { Chip, Stack } from "@mui/material";
-import { TagContent } from "src/types";
+import { TagMeta } from "src/types";
 
 export default function TagRow({
   tags,
   limit,
 }: {
-  tags: TagContent[];
+  tags: TagMeta[];
   limit?: number;
 }) {
   const displayedTags = limit ? tags.slice(0, limit) : tags;

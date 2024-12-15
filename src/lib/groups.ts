@@ -1,21 +1,21 @@
 import groups from "@meta/groups.yml";
 import { countRecipes } from "./recipes";
-import { GroupContent } from "src/types";
+import { GroupMeta } from "src/types";
 
-function generateGroupMap(): { [key: string]: GroupContent } {
-  let result: { [key: string]: GroupContent } = {};
+function generateGroupMap(): { [key: string]: GroupMeta } {
+  let result: { [key: string]: GroupMeta } = {};
   for (const group of groups.groups) {
     result[group.slug] = { ...group, count: countRecipes("group", group.slug) };
   }
   return result;
 }
 
-const groupMap: { [key: string]: GroupContent } = generateGroupMap();
+const groupMap: { [key: string]: GroupMeta } = generateGroupMap();
 
 export function getGroup(slug: string) {
   return groupMap[slug];
 }
 
-export function listGroups(): GroupContent[] {
+export function listGroups(): GroupMeta[] {
   return Object.values(groupMap);
 }
