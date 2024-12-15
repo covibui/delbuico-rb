@@ -266,8 +266,8 @@ collections:
             widget: "list"
             label_singular: "ingredient"
             fields:
-              - label: "item"
-                name: "Item"
+              - label: "Item"
+                name: "item"
                 widget: "string"
       - label: "Post Recipe Notes"
         name: "post_recipe_notes"

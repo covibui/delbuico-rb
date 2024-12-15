@@ -17,7 +17,7 @@ export default function RecipeDirections({ directions }: Props) {
               <Stack component="ul">
                 {direction.ingredients.map((ingredient, idx) => (
                   <Typography key={idx} component="li">
-                    {ingredient}
+                    {ingredient.item}
                   </Typography>
                 ))}
               </Stack>
