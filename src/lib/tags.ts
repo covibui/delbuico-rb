@@ -1,10 +1,10 @@
 import tags from "@meta/tags.yml";
-import { TagContent } from "src/types";
+import { TagMeta } from "src/types";
 
-const tagMap: { [key: string]: TagContent } = generateTagMap();
+const tagMap: { [key: string]: TagMeta } = generateTagMap();
 
-function generateTagMap(): { [key: string]: TagContent } {
-  let result: { [key: string]: TagContent } = {};
+function generateTagMap(): { [key: string]: TagMeta } {
+  let result: { [key: string]: TagMeta } = {};
   for (const tag of tags.tags) {
     result[tag.slug] = tag;
   }
@@ -19,6 +19,6 @@ export function getTags(slugs: string[]) {
   return slugs.map((slug) => getTag(slug));
 }
 
-export function listTags(): TagContent[] {
+export function listTags(): TagMeta[] {
   return tags.tags;
 }

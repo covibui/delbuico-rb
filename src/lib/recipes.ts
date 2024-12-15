@@ -2,15 +2,15 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import yaml from "js-yaml";
-import { RecipeCacheContent } from "src/types";
+import { RecipeCacheMeta } from "src/types";
 
 const recipesDirectory = path.join(process.cwd(), "content/recipes");
 
-let recipeCache: RecipeCacheContent[];
+let RecipeCacheMeta: RecipeCacheMeta[];
 
-export function fetchRecipeCacheContent(): RecipeCacheContent[] {
-  if (recipeCache) {
-    return recipeCache;
+export function fetchRecipeCacheMeta(): RecipeCacheMeta[] {
+  if (RecipeCacheMeta) {
+    return RecipeCacheMeta;
   }
 
   // Get file names under /recipes
@@ -48,15 +48,15 @@ export function fetchRecipeCacheContent(): RecipeCacheContent[] {
       return matterData;
     });
 
-  recipeCache = allRecipesData;
-  return recipeCache;
+  RecipeCacheMeta = allRecipesData;
+  return RecipeCacheMeta;
 }
 
 export function countRecipes(
   field: "group" | "tags" | null = null,
   value?: string,
 ): number {
-  return fetchRecipeCacheContent().filter(
+  return fetchRecipeCacheMeta().filter(
     (recipe) =>
       !value ||
       (field === "group"
@@ -65,11 +65,11 @@ export function countRecipes(
   ).length;
 }
 
-export function listRecipeCacheContent(
+export function listRecipeCacheMeta(
   field: "group" | "tags" | null = null,
   value?: string,
-): RecipeCacheContent[] {
-  return fetchRecipeCacheContent().filter(
+): RecipeCacheMeta[] {
+  return fetchRecipeCacheMeta().filter(
     (recipe) =>
       !value ||
       (field === "group"

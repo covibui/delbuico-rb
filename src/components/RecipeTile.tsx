@@ -1,8 +1,8 @@
 import Tile from "./Tile";
 import TagRow from "./TagRow";
-import { RecipeContent } from "src/types";
+import { RecipeMeta } from "src/types";
 
-export default function RecipeTile({ recipe }: { recipe: RecipeContent }) {
+export default function RecipeTile({ recipe }: { recipe: RecipeMeta }) {
   return (
     <Tile
       name={recipe.title}

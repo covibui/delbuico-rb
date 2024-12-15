@@ -4,24 +4,24 @@ export type SiteConfig = {
   readonly site_description: string;
 };
 
-export type AuthorContent = {
+export type AuthorMeta = {
   readonly slug: string;
   readonly name: string;
 };
 
-export type GroupContent = {
+export type GroupMeta = {
   readonly slug: string;
   readonly name: string;
   readonly image?: string;
   readonly count: number;
 };
 
-export type TagContent = {
+export type TagMeta = {
   readonly slug: string;
   readonly name: string;
 };
 
-export type RecipeCacheContent = {
+export type RecipeCacheMeta = {
   readonly slug: string;
   readonly title: string;
   readonly group: string;
@@ -29,8 +29,44 @@ export type RecipeCacheContent = {
   readonly fullPath: string;
 };
 
-export interface RecipeContent
-  extends Omit<RecipeCacheContent, "group" | "tags"> {
-  group: GroupContent;
-  tags: TagContent[];
+export interface RecipeMeta extends Omit<RecipeCacheMeta, "group" | "tags"> {
+  group: GroupMeta;
+  tags: TagMeta[];
+}
+
+export interface MeasuredTime {
+  time: number;
+  unit: string;
+}
+
+export interface RecipeMaterial {
+  item: string;
+}
+
+export interface RecipeIngredient {
+  item: string;
+  substitute?: string;
+}
+
+export interface RecipeDirection {
+  step: string;
+  ingredients?: {
+    item: string;
+  }[];
+}
+
+export interface RecipeContent {
+  slug: string;
+  title: string;
+  group: GroupMeta;
+  author: AuthorMeta;
+  tags: string[];
+  prep_time: MeasuredTime;
+  cook_time: MeasuredTime;
+  servings: number;
+  pre_recipe_notes?: string;
+  materials?: RecipeMaterial[];
+  ingredients?: RecipeIngredient[];
+  directions?: RecipeDirection[];
+  post_recipe_notes?: string;
 }
