@@ -1,4 +1,3 @@
-
 backend:
   name: git-gateway
   branch: master
@@ -129,6 +128,7 @@ collections:
         displayFields:
           - "authors.*.name"
         valueField: "authors.*.slug"
+        options_length: 50
       - label: Group
         name: "group"
         widget: relation
@@ -141,6 +141,7 @@ collections:
           - "groups.*.name"
         valueField: "groups.*.slug"
         default: "uncategorized"
+        options_length: 50
       - label: "Image"
         name: "image"
         required: false
@@ -162,6 +163,7 @@ collections:
           displayFields:
             - "tags.*.name"
           valueField: "tags.*.slug"
+          options_length: 100
       - label: "Prep Time"
         name: "prep_time"
         widget: "object"
@@ -176,9 +178,9 @@ collections:
             name: "unit"
             widget: "select"
             options:
-              - {label: "Minute", value: "minute"}
-              - {label: "Hour", value: "hour"}
-              - {label: "Day", value: "day"}
+              - { label: "Minute", value: "minute" }
+              - { label: "Hour", value: "hour" }
+              - { label: "Day", value: "day" }
       - label: "Cook Time"
         name: "cook_time"
         widget: "object"
@@ -193,9 +195,9 @@ collections:
             name: "unit"
             widget: "select"
             options:
-              - {label: "Minute", value: "minute"}
-              - {label: "Hour", value: "hour"}
-              - {label: "Day", value: "day"}
+              - { label: "Minute", value: "minute" }
+              - { label: "Hour", value: "hour" }
+              - { label: "Day", value: "day" }
       - label: "Servings"
         name: "servings"
         widget: "number"
