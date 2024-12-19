@@ -3,3 +3,77 @@ tags:
     name: Holiday
   - slug: family-recipe
     name: Family Recipe
+  - slug: venezuelan
+    name: Venezuelan
+  - slug: haitian
+    name: Haitian
+  - slug: christmas
+    name: Christmas
+  - slug: asian-food
+    name: Asian
+  - slug: cassie
+    name: Cassie
+  - slug: easy
+    name: Easy
+  - slug: overnight
+    name: Overnight
+  - slug: spring
+    name: Spring
+  - slug: summer
+    name: Summer
+  - slug: winter
+    name: Winter
+  - slug: autumn
+    name: Autumn
+  - slug: thanksgiving
+    name: Thanksgiving
+  - slug: one-day
+    name: One Day Meal
+  - slug: one-pan
+    name: One Pan
+  - slug: dinner-idea
+    name: Dinner Idea
+  - slug: family-favorite
+    name: Family Fave
+  - slug: birthday
+    name: Birthday
+  - slug: inspo
+    name: Inspo
+  - slug: holiday
+    name: Holiday
+  - slug: bbq
+    name: BBQ
+  - slug: party
+    name: Party Meal
+  - slug: max-fav
+    name: Max's Favorite
+  - slug: xander-fav
+    name: Xander's Favorite
+  - slug: alex-fav
+    name: Alex's Favorite
+  - slug: peppy-fav
+    name: Peppy's Favorite
+  - slug: miche-fav
+    name: Miche's Favorite
+  - slug: bri-fav
+    name: Bri's Favorite
+  - slug: crowd-pleaser
+    name: Crowd Pleaser
+  - slug: chelsea
+    name: Chelsea
+  - slug: italian
+    name: Italian
+  - slug: chinese
+    name: Chinese
+  - slug: american
+    name: American
+  - slug: korean
+    name: Korean
+  - slug: japanese
+    name: Japanese
+  - slug: mediterranean
+    name: Mediterranean
+  - slug: mexican
+    name: Mexican
+  - slug: sinful
+    name: Sinful
