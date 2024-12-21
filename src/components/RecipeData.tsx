@@ -25,7 +25,7 @@ export default function RecipeData({ stats }: Props) {
             <Box
               key={idx}
               sx={{
-                px: 2,
+                px: { xs: 1, sm: 2 },
                 borderRight: `1px solid ${palette.beige.border}`,
                 "&:first-of-type": {
                   pl: 0,
@@ -36,7 +36,7 @@ export default function RecipeData({ stats }: Props) {
                 },
               }}
             >
-              <Stack spacing={1} sx={{ width: 80, alignItems: "center" }}>
+              <Stack spacing={1} sx={{ width: 100, alignItems: "center" }}>
                 <Typography sx={{ textTransform: "uppercase" }}>
                   {stat.title}
                 </Typography>

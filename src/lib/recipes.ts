@@ -32,6 +32,7 @@ export function fetchRecipeCacheMeta(): RecipeCacheMeta[] {
         slug: string;
         title: string;
         group: string;
+        image?: string;
         fullPath: string;
         url: string;
       };

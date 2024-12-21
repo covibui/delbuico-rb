@@ -46,11 +46,11 @@ let theme = createTheme({
       lineHeight: "10px",
     },
     body1: {
-      fontSize: 14,
+      fontSize: 16,
       lineHeight: "22px",
     },
     body2: {
-      fontSize: 14,
+      fontSize: 16,
       fontWeight: 300,
       lineHeight: "22px",
     },

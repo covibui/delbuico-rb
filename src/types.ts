@@ -26,6 +26,7 @@ export type RecipeCacheMeta = {
   readonly title: string;
   readonly group: string;
   readonly tags?: string[];
+  readonly image?: string;
   readonly fullPath: string;
 };
 
@@ -61,6 +62,7 @@ export interface RecipeContent {
   group: GroupMeta;
   author: AuthorMeta;
   tags: string[];
+  image?: string;
   prep_time: MeasuredTime;
   cook_time: MeasuredTime;
   servings: number;

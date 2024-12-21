@@ -1,4 +1,4 @@
-import { Container, Stack } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -24,10 +24,10 @@ export default function Layout({ children, ...headerProps }: Props) {
         sx={{ display: "flex", minHeight: 1 }}
       >
         <Stack justifyContent="space-between" flex={1}>
-          <div>
+          <Box sx={{ flexGrow: 1 }}>
             <Header {...headerProps} />
             {children}
-          </div>
+          </Box>
           <Footer />
         </Stack>
       </Container>

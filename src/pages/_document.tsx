@@ -19,6 +19,15 @@ export default function MyDocument(
     <Html lang="en">
       <Head>
         <DocumentHeadTags {...props} />
+        <style>
+          {`
+            html,
+            body,
+            #__next {
+              height: 100%;
+            }
+          `}
+        </style>
       </Head>
       <body>
         <Main />
