@@ -7,15 +7,18 @@ import "@fontsource/lato/700.css";
 import "@fontsource/lato/900.css";
 import theme from "@theme/index";
 import { AppCacheProvider } from "@mui/material-nextjs/v13-pagesRouter";
+import { CookiesProvider } from "react-cookie";
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
   return (
     <AppCacheProvider {...props}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <CookiesProvider defaultSetOptions={{ path: "/" }}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CookiesProvider>
     </AppCacheProvider>
   );
 }

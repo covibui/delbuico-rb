@@ -165,6 +165,33 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {},
+      },
+      defaultProps: {
+        color: "primary",
+      },
+      variants: [
+        {
+          props: { color: "primary" },
+          style: {
+            "& .MuiInputLabel-root": {
+              "&.Mui-focused": {
+                color: palette.beige.border,
+              },
+            },
+            "& .MuiInputBase-root": {
+              "&.Mui-focused": {
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: palette.beige.border,
+                },
+              },
+            },
+          },
+        },
+      ],
+    },
     MuiTypography: {
       styleOverrides: {
         h1: {},
