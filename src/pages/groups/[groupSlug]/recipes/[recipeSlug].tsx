@@ -5,7 +5,7 @@ import yaml from "js-yaml";
 import { fetchRecipeCacheMeta } from "@lib/recipes";
 import Layout from "@components/Layout";
 import { getGroup } from "@lib/groups";
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { getAuthor } from "@lib/authors";
 import { RecipeCacheMeta, RecipeContent } from "src/types";
 import TagRow from "@components/TagRow";
@@ -36,7 +36,7 @@ export default function Recipe(recipe: RecipeContent) {
         author={recipe.author.name}
         url={`/groups/${recipe.group.slug}/recipes/${recipe.slug}`}
       />
-      <Stack spacing={2}>
+      <Stack spacing={2} maxWidth="md" mx="auto">
         <Stack spacing={1}>
           <Typography variant="h1">{recipe.title}</Typography>
           <Typography variant="subtitle1">by: {recipe.author.name}</Typography>
@@ -44,7 +44,20 @@ export default function Recipe(recipe: RecipeContent) {
         {recipe.tags && recipe.tags.length > 0 && (
           <TagRow tags={getTags(recipe.tags)} />
         )}
-        {/* TODO: add recipe image support */}
+        {recipe.image && (
+          <Box
+            sx={{
+              width: 1,
+              height: 300,
+              borderRadius: 1,
+              boxShadow: "0px 2px 4px 0px rgba(117, 117, 117, 0.3)",
+              backgroundImage: `url(${recipe.image})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        )}
         <RecipeData
           stats={[
             {
