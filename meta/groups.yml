@@ -53,8 +53,8 @@ groups:
   - name: Pancakes, Waffles, French Toast & Doughnuts
     slug: pancakes-waffles-ft-donuts
     image: /images/img17_pancake.png
-  - slug: cookies
-    name: Cookies
+  - slug: desserts
+    name: Desserts
     image: /images/img18_cookies.png
   - name: Pastries, Pies & Tarts
     slug: pastries-pies-tarts
