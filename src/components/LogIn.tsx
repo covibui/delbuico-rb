@@ -15,7 +15,6 @@ interface Props {
 }
 
 export default function LogIn({ onLogin }: Props) {
-  console.log(SITE_PASSWORD);
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [passwordError, setPasswordError] = useState<string>("");
