@@ -36,8 +36,8 @@ groups:
     name: Breakfast
   - name: Pancakes, Waffles, French Toast & Doughnuts
     slug: pancakes-waffles-ft-donuts
-  - slug: cookies
-    name: Cookies
+  - slug: desserts
+    name: Desserts
   - name: Pastries, Pies & Tarts
     slug: pastries-pies-tarts
   - slug: cakes
