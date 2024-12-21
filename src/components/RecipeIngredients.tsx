@@ -1,5 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import { RecipeIngredient } from "src/types";
+import List from "./List";
 
 interface Props {
   ingredients: RecipeIngredient[];
@@ -7,20 +8,24 @@ interface Props {
 
 export default function RecipeIngredients({ ingredients }: Props) {
   return (
-    <Stack>
-      <Typography>Ingredients</Typography>
-      <Stack component="ul">
-        {ingredients.map((ingredient, idx) => (
-          <Typography key={idx} component="li">
+    <Stack spacing={1}>
+      <Typography variant="h2">Ingredients</Typography>
+      <List
+        items={ingredients.map((ingredient) => (
+          <>
             {ingredient.item}{" "}
             {ingredient.substitute && (
-              <Typography component="span">
+              <Typography
+                component="span"
+                variant="body2"
+                sx={{ color: "text.secondary" }}
+              >
                 ({ingredient.substitute})
               </Typography>
             )}
-          </Typography>
+          </>
         ))}
-      </Stack>
+      />
     </Stack>
   );
 }

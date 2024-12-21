@@ -46,7 +46,7 @@ export default function Tile({
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
-      ></Box>
+      />
       <Typography variant="subtitle2">{name}</Typography>
       {children}
     </Stack>
