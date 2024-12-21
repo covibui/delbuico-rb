@@ -4,47 +4,70 @@ groups:
     image: ""
   - slug: drinks
     name: Drinks
+    image: /images/img01_drinks.png
   - slug: stocks-sauces
     name: Stocks & Sauces
+    image: /images/img02_stock.png
   - slug: condiments-marinades-dryrubs
     name: Condiments, Marinades & Dry Rubs
+    image: /images/img03_condiment.png
   - slug: seasoning-blends
     name: Seasoning Blends
+    image: /images/img04_seasoning.png
   - slug: soups
     name: Soups
+    image: /images/img05_soup.png
   - slug: hors-doevres
     name: Hors D’oevres
+    image: /images/img06_horsdoevres.png
   - name: Sandwiches, Wraps & Pizzas
     slug: sandwiches-wraps-pizzas
+    image: /images/img07_sandwich.png
   - name: Salads & Dressings
     slug: salads-dressings
+    image: /images/img08_salad.png
   - slug: grains
     name: Grains
+    image: /images/img09_grain.png
   - name: Pasta, Noodles & Dumplings
     slug: pasta-noodles-dumplings
+    image: /images/img10_pasta.png
   - slug: vegetables
     name: Vegetables
+    image: /images/img11_vegetables.png
   - name: Shellfish & Fish
     slug: shellfish-fish
+    image: /images/img12_shellfish.png
   - slug: poultry
     name: Poultry
+    image: /images/img13_poultry.png
   - slug: meat
     name: Meat
+    image: /images/img14_meat.png
   - slug: breads
     name: Breads
+    image: /images/img15_bread.png
   - slug: breakfast
     name: Breakfast
+    image: /images/img16_breakfast.png
   - name: Pancakes, Waffles, French Toast & Doughnuts
     slug: pancakes-waffles-ft-donuts
+    image: /images/img17_pancake.png
   - slug: cookies
     name: Cookies
+    image: /images/img18_cookies.png
   - name: Pastries, Pies & Tarts
     slug: pastries-pies-tarts
+    image: /images/img19_pastries.png
   - slug: cakes
     name: Cakes
+    image: /images/img20_cake.png
   - name: Frostings, Fillings & Glazes
     slug: frostings-fillings-glazes
+    image: /images/img21_frosting.png
   - slug: dogs
     name: Dogs
+    image: /images/img22_dog.png
   - slug: cleaning
     name: Cleaning Recipes
+    image: /images/img23_cleaning.png
