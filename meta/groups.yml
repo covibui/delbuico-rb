@@ -55,7 +55,7 @@ groups:
     image: /images/img17_pancake.png
   - slug: desserts
     name: Desserts
-    image: /images/img18_cookies.png
+    image: /images/img18_desserts.png
   - name: Pastries, Pies & Tarts
     slug: pastries-pies-tarts
     image: /images/img19_pastries.png
