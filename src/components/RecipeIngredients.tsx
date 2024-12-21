@@ -12,7 +12,7 @@ export default function RecipeIngredients({ ingredients }: Props) {
       <Typography variant="h2">Ingredients</Typography>
       <List
         items={ingredients.map((ingredient) => (
-          <>
+          <Typography variant="body2">
             {ingredient.item}{" "}
             {ingredient.substitute && (
               <Typography
@@ -23,7 +23,7 @@ export default function RecipeIngredients({ ingredients }: Props) {
                 ({ingredient.substitute})
               </Typography>
             )}
-          </>
+          </Typography>
         ))}
       />
     </Stack>

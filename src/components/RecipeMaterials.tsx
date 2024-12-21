@@ -10,7 +10,11 @@ export default function RecipeMaterials({ materials }: Props) {
   return (
     <Stack spacing={1}>
       <Typography variant="h2">Materials</Typography>
-      <List items={materials.map(({ item }) => item)} />
+      <List
+        items={materials.map(({ item }) => (
+          <Typography variant="body2">{item}</Typography>
+        ))}
+      />
     </Stack>
   );
 }

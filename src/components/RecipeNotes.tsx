@@ -7,7 +7,7 @@ interface Props {
 
 export default function RecipeNotes({ notes }: Props) {
   return (
-    <Stack>
+    <Stack spacing={1}>
       <Typography variant="h2">Notes</Typography>
       <MarkdownBlock>{notes}</MarkdownBlock>
     </Stack>
