@@ -43,16 +43,15 @@ export default function LogIn({ onLogin }: Props) {
         component="form"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(password === SITE_PASSWORD);
           if (password === SITE_PASSWORD) {
             onLogin();
           } else {
-            setPasswordError("Password Incorrect");
+            setPasswordError("Incorrect password");
           }
         }}
       >
         <TextField
-          label="Password"
+          label="PASSWORD"
           type={showPassword ? "text" : "password"}
           value={password}
           error={Boolean(passwordError)}
