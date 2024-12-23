@@ -65,7 +65,10 @@ export interface RecipeContent {
   image?: string;
   prep_time: MeasuredTime;
   cook_time: MeasuredTime;
-  servings: number;
+  servings: {
+    minimum: number;
+    maximum?: number;
+  };
   pre_recipe_notes?: string;
   materials?: RecipeMaterial[];
   ingredients?: RecipeIngredient[];
