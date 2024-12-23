@@ -6,9 +6,9 @@ public_folder: /images
 publish_mode: simple
 
 slug:
-  encoding: "ascii"
+  encoding: "unicode"
   clean_accents: true
-  sanitize_replacement: "_"
+  sanitize_replacement: "-"
 
 collections:
   - name: "config"
@@ -110,6 +110,7 @@ collections:
     create: true
     slug: "{{slug}}"
     summary: "{{ group }} | {{ title }}"
+    identifier_field: "slug"
     sortable_fields: ["title", "slug", "author", "group"]
     view_groups:
       - label: Group
@@ -206,9 +207,20 @@ collections:
               - { label: "Day", value: "day" }
       - label: "Servings"
         name: "servings"
-        widget: "number"
-        value_type: "int"
-        min: 1
+        widget: "object"
+        summary: "{{fields.minimum}} - {{fields.maximum}}"
+        fields:
+          - label: "Minimum"
+            name: "minimum"
+            widget: "number"
+            value_type: "int"
+            min: 1
+          - label: "Maximum"
+            name: "maximum"
+            widget: "number"
+            value_type: "int"
+            min: 1
+            required: false
       - label: "Pre Recipe Notes"
         name: "pre_recipe_notes"
         required: false
