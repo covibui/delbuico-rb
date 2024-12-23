@@ -70,7 +70,9 @@ export default function Recipe(recipe: RecipeContent) {
             },
             {
               title: "Serves",
-              value: `${recipe.servings}`,
+              value: recipe.servings.maximum
+                ? `${recipe.servings.minimum} to ${recipe.servings.maximum}`
+                : `${recipe.servings.minimum}`,
             },
           ]}
         />
