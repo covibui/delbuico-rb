@@ -112,6 +112,8 @@ collections:
     summary: "{{ group }} | {{ title }}"
     identifier_field: "slug"
     sortable_fields: ["title", "slug", "author", "group"]
+    editor:
+      preview: false
     view_groups:
       - label: Group
         field: group
