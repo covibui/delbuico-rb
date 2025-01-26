@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 
 export default function Footer() {
   return (
@@ -7,8 +7,7 @@ export default function Footer() {
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        px: 2,
+        justifyContent: "space-between",
         py: {
           xs: 1.25,
           sm: 2,
@@ -16,6 +15,11 @@ export default function Footer() {
       }}
     >
       <Typography>&copy; Copyright {new Date().getFullYear()}</Typography>
+      <Typography>
+        <Link href="/admin/index.html" underline="none">
+          Admin
+        </Link>
+      </Typography>
     </Box>
   );
 }

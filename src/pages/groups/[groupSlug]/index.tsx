@@ -2,11 +2,11 @@ import Layout from "@components/Layout";
 import { getGroup, listGroups } from "@lib/groups";
 import { listRecipeCacheMeta } from "@lib/recipes";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Box, Stack, Typography } from "@mui/material";
-import RecipeTile from "@components/RecipeTile";
+import { Stack, Typography } from "@mui/material";
 import { GroupMeta, RecipeMeta } from "src/types";
 import { getTags } from "@lib/tags";
 import BasicMeta from "@components/meta/BasicMeta";
+import TileGrid from "@components/TileGrid";
 
 interface Props {
   group: GroupMeta;
@@ -18,11 +18,7 @@ export default function Group({ group, recipes }: Props) {
     <Layout title={group.name} itemCount={group.count} backLink="/">
       <BasicMeta title={group.name} url={`/groups/${group.slug}`} />
       {recipes.length > 0 ? (
-        <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2.5 }}>
-          {recipes.map((recipe, idx) => (
-            <RecipeTile key={idx} recipe={recipe} />
-          ))}
-        </Box>
+        <TileGrid variant="recipe" items={recipes} />
       ) : (
         <Stack alignItems="center">
           <Typography>No recipes found</Typography>

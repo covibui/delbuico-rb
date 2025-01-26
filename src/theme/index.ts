@@ -165,6 +165,17 @@ theme = createTheme(theme, {
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: palette.beige.link,
+          textDecorationColor: palette.beige.link,
+          "&:hover": {
+            color: palette.beige.border,
+          },
+        },
+      },
+    },
     MuiTextField: {
       styleOverrides: {
         root: {},
