@@ -1,6 +1,5 @@
 import Layout from "@components/Layout";
 import BasicMeta from "@components/meta/BasicMeta";
-import OpenGraphMeta from "@components/meta/OpenGraphMeta";
 import TileGrid from "@components/TileGrid";
 import { listGroups } from "@lib/groups";
 import { GetStaticProps } from "next";
@@ -14,7 +13,6 @@ export default function Index({ groups }: Props) {
   return (
     <Layout title="Recipe Book">
       <BasicMeta url={"/"} />
-      <OpenGraphMeta url={"/"} />
       <TileGrid variant="group" items={groups} />
     </Layout>
   );
